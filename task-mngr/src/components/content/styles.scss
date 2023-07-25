@@ -1,0 +1,49 @@
+.content {
+    &__container {
+        max-width: 80%;
+        width    : 100%;
+        margin   : 0 auto;
+    }
+
+    button {
+        background-color: #fff;
+        padding         : 5px;
+        border-radius   : 5px;
+
+
+        &:hover {
+            background-color: #cfc7c7;
+        }
+    }
+
+    &__top {
+        display        : flex;
+        justify-content: space-between;
+        margin         : 5px 0;
+    }
+
+    &__title {
+        font-weight: 800;
+    }
+
+    .tasks {
+        &__titles {
+            display        : flex;
+            justify-content: space-between;
+
+            &:hover {
+                background-color: #665b5b3b;
+            }
+        }
+
+        &__title {
+            position: relative;
+            border  : 1px solid gray;
+            width   : 100%;
+
+            &:hover {
+                background-color: #3f35353b;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.task {
+    display        : flex;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: #665b5b3b;
+    }
+
+    &__col {
+        position       : relative;
+        width          : 100%;
+        border         : 1px solid gray;
+        display        : flex;
+        align-items    : center;
+        text-align     : center;
+        justify-content: center;
+        word-break     : break-all;
+
+        &:hover {
+            background-color: #3f35353b;
+
+            h3,
+            span {
+                transform: scale(1.1);
+            }
+        }
+
+        span {
+            margin-left: 5px;
+        }
+    }
+}

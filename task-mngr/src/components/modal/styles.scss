@@ -1,0 +1,130 @@
+.modal-task {
+    z-index         : 2;
+    width           : 50%;
+    height          : 50%;
+    background-color: #464343;
+    position        : absolute;
+    left            : 50%;
+    top             : 50%;
+    right           : 50%;
+    bottom          : 50%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    transform       : translate(-50%, -50%);
+
+    label {
+        margin-right : 10px;
+        margin-bottom: 10px;
+    }
+
+    #title {
+        border-radius: 3px;
+
+        &::placeholder {
+            display: none;
+        }
+    }
+
+    span {
+        color: red;
+    }
+
+    &__block {
+        margin: 5px;
+    }
+
+    &__button-create {
+        position        : absolute;
+        bottom          : 0;
+        transform       : translate(0, 99%);
+        background-color: #575757;
+        padding         : 5px 10px;
+        text-transform  : uppercase;
+
+        &:disabled {
+            color: red;
+        }
+    }
+
+    &__button-close {
+        position: absolute;
+        top     : 5px;
+        right   : 10px;
+    }
+
+    &__create {
+        margin    : 10px auto;
+        text-align: center;
+
+        label {
+            color       : #4a47f0;
+            margin-right: 5px;
+        }
+    }
+}
+
+.modal {
+    position        : absolute;
+    right           : 0;
+    top             : 0;
+    transform       : translate(0, 50%);
+    z-index         : 2;
+    background-color: #868383c7;
+    border-radius   : 5px;
+
+    span,
+    h3 {
+        cursor: pointer;
+    }
+
+    &-menu {
+        display       : flex;
+        flex-direction: column;
+
+        &__hover,
+        h3 {
+            position      : relative;
+            display       : flex;
+            flex-direction: column;
+
+            .hiden {
+                display: none;
+            }
+
+            &:hover {
+                background-color: #a89b9bc7;
+
+                border-radius: 5px;
+
+                .hiden {
+                    display         : flex;
+                    flex-direction  : column;
+                    position        : absolute;
+                    transform       : translate(-100%, -30%);
+                    background-color: #868383c7;
+                    text-align      : center;
+                    padding-right   : 5px;
+                    border-radius   : 5px;
+
+
+                    span {
+                        border-radius: 5px;
+                        width        : 100%;
+                        text-align   : center;
+                        margin       : 3px;
+                    }
+
+                    &:hover {
+
+                        span:hover {
+                            background-color: #a89b9bc7;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
