@@ -3,22 +3,19 @@ import { checkBoard } from './numbersArrays';
 import SudokuCell from './renderCells';
 
 const SudokuBoard = ({ board }) => {
-    const [newBoard, setNewBoard] = useState(board)
-    //get Row,Col,Val in arr[arr]
-    const [newValuee, setNewValue] = useState()
+    const [newBoard, setNewBoard] = useState(board);
+    const [newValue, setNewValue] = useState()
     //edited value in Arr
 
-
     useEffect(() => {
-        if (newValuee !== undefined) {
+        if (newValue !== undefined) {
             console.log('start', checkBoard.startArray)
             console.log('rows', checkBoard.rows)
             console.log('cols', checkBoard.columns)
             console.log('coubs', checkBoard.coubs)
             console.log('new', newBoard)
         }
-
-    }, [newValuee])
+    }, [newValue])
 
     useEffect(() => {
         checkBoard.init(board);
@@ -26,16 +23,11 @@ const SudokuBoard = ({ board }) => {
     }, []);
 
     const handleCellChange = (row, col, newValue) => {
-        setNewValue(newValue)
         // Update the value in the board array
-        const updatedBoard = newBoard.map((r, rowIndex) =>
+        const updatedBoard = checkBoard.startArray.map((r, rowIndex) =>
             rowIndex === row ? r.map((cell, colIndex) => (colIndex === col ? newValue : cell)) : r
         );
-        checkBoard.init(updatedBoard);
-        checkBoard.update(row, col, newValue)
-        setNewBoard(checkBoard.startArray);
-        //setNewBoard(updatedBoard);
-
+        setNewBoard(updatedBoard);
     };
 
     return (

@@ -48,19 +48,23 @@
     }
 
     &__cell {
-      border         : 1px solid black;
-      display        : flex;
-      justify-content: center;
-      align-items    : center;
-      text-align     : center;
-      font-weight    : bold;
+      border     : 1px solid black;
+      display    : flex;
+      text-align : center;
+      font-weight: bold;
+
 
       &-const {
         font-weight: 800;
+        display    : flex;
       }
 
       &-light {
         color: rgb(35, 194, 69);
+      }
+
+      &-red {
+        color: rgb(197, 32, 32);
       }
 
       &:first-child {
