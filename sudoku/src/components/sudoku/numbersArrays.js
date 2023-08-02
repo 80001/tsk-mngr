@@ -11,32 +11,6 @@ export const initialBoard = [
     [undefined, undefined, undefined, 4, 1, 9, undefined, undefined, 5],
     [undefined, undefined, undefined, undefined, 8, undefined, undefined, 7, 9],
 ];
-export const initialBoard2 = [
-    // Заповнити цю матрицю початковими значеннями судоку для гри.
-    // Використовуйте null або 0 для пустих комірок.
-    [5, 3, null, null, 7, null, null, null, null],
-    [6, null, null, 1, 9, 5, null, null, null],
-    [null, 9, 8, null, null, null, null, 6, null],
-    [8, null, null, null, 6, null, null, null, 3],
-    [4, null, null, 8, null, 3, null, null, 1],
-    [7, null, null, null, 2, null, null, null, 6],
-    [null, 6, null, null, null, null, 2, 8, null],
-    [null, null, null, 4, 1, 9, null, null, 5],
-    [null, null, null, null, 8, null, null, 7, 9],
-];
-export const initialBoard3 = [
-    // Заповнити цю матрицю початковими значеннями судоку для гри.
-    // Використовуйте null або 0 для пустих комірок.
-    [5, 3, 0, 0, 7, 0, 0, 0, 0],
-    [6, 0, 0, 1, 9, 5, 0, 0, 0],
-    [0, 9, 8, 0, 0, 0, 0, 6, 0],
-    [8, 0, 0, 0, 6, 0, 0, 0, 3],
-    [4, 0, 0, 8, 0, 3, 0, 0, 1],
-    [7, 0, 0, 0, 2, 0, 0, 0, 6],
-    [0, 6, 0, 0, 0, 0, 2, 8, 0],
-    [0, 0, 0, 4, 1, 9, 0, 0, 5],
-    [0, 0, 0, 0, 8, 0, 0, 7, 9],
-];
 
 export const checkBoard = {
     startArray: [],
@@ -44,7 +18,8 @@ export const checkBoard = {
     columns: [],
     coubs: [],
     error: false,
-    completed: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    finish: false,
+    numbers: {},
 
     setRow: () => {
         for (let x = 0; x < 9; x++) {
@@ -90,14 +65,41 @@ export const checkBoard = {
         const isCubUnique = new Set(filteredCub).size === filteredCub.length;
 
         if (isRowUnique && isColumnUnique && isCubUnique) {
-            console.log('Unique values in row, column, and cub:', row, col);
+            //console.log('Unique values in row, column, and cub:', row, col);
             if (checkBoard.error === true) {
-                console.log('chisdawf', row, col);
+                console.log('error in', row, col);
                 checkBoard.error = false
             }
+
         } else {
             console.log('error!')
             checkBoard.error = true
+        }
+        const flattenBoard = checkBoard.startArray.flat();
+        const uniqueNumbers = new Set(flattenBoard);
+        //no undefined here
+        if (uniqueNumbers.size === 9) {
+            checkBoard.finish = true
+
+        }
+
+
+    },
+    checkNum: () => {
+        const flattenBoard = checkBoard.startArray.flat();
+        const numberCounts = new Array(10).fill(0); // Масив для підрахунку кількості кожної цифри (індекс 0 буде проігноровано)
+
+        // Підраховуємо кількість кожної цифри в пазлі
+        flattenBoard.forEach(num => {
+            if (num !== undefined) {
+                numberCounts[num]++;
+            }
+        });
+        // Очищуємо об'єкт перед кожною перевіркою
+        checkBoard.numbers = {};
+        // Перевіряємо, чи кожна цифра зустрічається рівно 9 разів
+        for (let i = 1; i <= 9; i++) {
+            checkBoard.numbers[i] = numberCounts[i] === 9;
         }
     },
 
@@ -112,20 +114,12 @@ export const checkBoard = {
     },
     update: (row, col, value) => {
         if (value) {
-            console.log('xx')
             checkBoard.startArray[row][col] = value
             checkBoard.setRow();
             checkBoard.setColumns();
             checkBoard.setCoubs();
             checkBoard.setCheck(row, col)
-            console.log("Updated startArray:", checkBoard.startArray)
-        }
-    },
-    updateFull: (row, col, array) => {
-        if (array) {
-            checkBoard.startArray = array
-            checkBoard.setCheck(row, col)
-            console.log("Updated startArray:", checkBoard.startArray)
+            //console.log("Updated startArray:", checkBoard.startArray)
         }
     }
 }
