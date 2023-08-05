@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useSudokuContext } from '../context';
 import { determineDifficulty } from '../utils';
 
-const Timer = () => {
+const Timer = ({ startGame }) => {
     const { isGameOver, setIsGameOver, difficulty, setRecords, records } = useSudokuContext();
     const [timer, setTimer] = useState(0);
     const [showEnd, setShowEnd] = useState(false);
+
+    useEffect(() => {
+        if (isGameOver) {
+            setShowEnd(true)
+        }
+    }, [isGameOver])
 
     const formatTime = () => {
         const minutes = String(Math.floor(timer / 60)).padStart(2, '0');
@@ -29,6 +35,7 @@ const Timer = () => {
     // Додати інші функції для обробки дій гравця, такі як валідація та збереження гри.
 
     useEffect(() => {
+        console.group('timer')
         console.log(isGameOver, 'isGame')
         console.log('start')
         if (isGameOver) {
@@ -47,10 +54,12 @@ const Timer = () => {
                 console.log('is end')
             }
             setIsGameOver(false);
+            startGame()
             console.log(isGameOver, 'endGame')
         }
         console.log('end')
-    }, [isGameOver]);
+        console.groupEnd()
+    }, [showEnd]);
 
 
     return (

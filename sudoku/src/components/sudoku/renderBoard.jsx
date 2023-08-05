@@ -16,6 +16,7 @@ const SudokuBoard = ({ board, isReset }) => {
         checkBoard.checkNum()
         if (checkBoard.finish) {
             setIsGameOver(true)
+            checkBoard.finish = false
         }
     }, [showNumber, activeCell])
     useEffect(() => {

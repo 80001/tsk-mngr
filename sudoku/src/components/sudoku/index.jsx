@@ -24,13 +24,7 @@ const Sudoku = () => {
         setTimerStart((prev) => prev + 1);
     };
 
-    useEffect(() => {
-        console.log('shit')
-        if (isGameOver) {
-            console.log('ydaw')
-            startGame();
-        }
-    }, [isGameOver]);
+
 
     const resetGame = () => {
         setIsReset(!isReset)
@@ -43,7 +37,7 @@ const Sudoku = () => {
     return (
         <div className="sudoku-game">
             <h1>Sudoku Game</h1>
-            <Timer key={timerStart} />
+            <Timer key={timerStart} startGame={startGame} />
             <div className="sudoku-game__main">
                 <div className="sudoku-game__input">
                     <h2>Numbers</h2>
