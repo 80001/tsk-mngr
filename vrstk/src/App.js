@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import Article from './components/article'
 import Navbar from './components/navbar'
 import Brand from './components/brand'
 import WhatGPT from './containers/whatGPT3'
