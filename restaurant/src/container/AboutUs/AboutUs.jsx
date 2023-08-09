@@ -22,9 +22,11 @@ const AboutUs = () => (
           pariatur reiciendis itaque odit? Modi est nemo tempora debitis
           recusandae.
         </p>
-        <button type="button" className="custom__button">
-          Know More
-        </button>
+        <div className="button-div">
+          <button type="button" className="custom__button">
+            Know More
+          </button>
+        </div>
       </div>
       <img
         src={images.knife}
@@ -43,9 +45,11 @@ const AboutUs = () => (
           pariatur reiciendis itaque odit? Modi est nemo tempora debitis
           recusandae.
         </p>
-        <button type="button" className="custom__button">
-          Know More
-        </button>
+        <div className="button-div">
+          <button type="button" className="custom__button">
+            Know More
+          </button>
+        </div>
       </div>
     </div>
   </div>
