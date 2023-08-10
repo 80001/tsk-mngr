@@ -1,0 +1,43 @@
+.app__find {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.app__wrapper-images {
+    width: 50%;
+}
+.app__wrapper-images img {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app__wrapper-info h1 {
+    margin: 1rem 0 4rem 0;
+}
+.app__wrapper-info h2 {
+    margin: 1rem 0;
+}
+.app__wrapper-info .div {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.app__wrapper-info .button-div {
+    display: flex;
+    justify-content: start;
+}
+@media screen and (max-width: 850px) {
+    .app__find {
+        flex-direction: column;
+    }
+    .app__wrapper-info .button-div {
+        justify-content: center;
+    }
+
+    .app__wrapper-info {
+        align-items: center;
+    }
+}

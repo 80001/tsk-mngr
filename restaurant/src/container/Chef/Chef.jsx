@@ -12,7 +12,7 @@ const Chef = () => (
       <SubHeading title="Chef's word" />
       <h1 className="headtext__cormorant">What We Believe In</h1>
       <div className="app__chef-text">
-        <p className="p__opensans"><img src={images.quote} alt="quote" />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit amet nisi beatae blanditiis facere pariatur aspernatur similique iste architecto error. Eaque, est pariatur! Ab quasi voluptatibus recusandae exercitationem neque aliquid.</p>
+        <p className="p__opensans" style={{ color: '#AAA' }}><img src={images.quote} alt="quote" />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit amet nisi beatae blanditiis facere pariatur aspernatur similique iste architecto error. Eaque, est pariatur! Ab quasi voluptatibus recusandae exercitationem neque aliquid.</p>
       </div>
       <div className="app__chef-luo">
         <h2 className='app__chef-h2'>Kevin Luo - Kazakh</h2>
