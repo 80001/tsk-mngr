@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Footer.css';
 import { BiLogoInstagram, BiLogoFacebook, BiLogoTwitter } from 'react-icons/bi'
 import { SubHeading } from '../../components';
 
 const Footer = () => {
-
+  const scrollTop = () => {
+    console.log('start')
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   return (
-    <div className='app__footer app__bg flex__center section__padding' id='footer'>
+    <div className='app__footer app__bg flex__center section__padding' id='footer' >
       <div className="app__footer-titles">
         <SubHeading title='Newsletter' />
         <h1 className="headtext__cormorant">Subscribe To our newsletter</h1>
@@ -41,7 +44,11 @@ const Footer = () => {
       <p className="app__footer-signs">
         2023 Gericht. All right reserved ©
       </p>
-
+      <div className="scroll-top" onClick={scrollTop}
+      >
+        <div />
+        <h2 className='p__cormorant'>TOP</h2>
+      </div>
     </div>
   )
 }
