@@ -3,15 +3,15 @@ import "./App.scss";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App bg-discount-gradient">
             <Navbar />
             <Hero />
             <Stats />
             <Billing />
+            <Business />
             <CardDeal />
             <Clients />
             <Testimonials />
-            <Business />
             <CTA />
             <Footer />
         </div>
