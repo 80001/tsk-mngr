@@ -8,9 +8,8 @@
     justify-content: space-between;
     align-items: center;
     background: #000;
-    text-align: center;
     &__logo {
-        height: 50%;
+        height: 60%;
         z-index: 2;
         img {
             padding: 1rem;
@@ -21,12 +20,13 @@
     }
     &__nav {
         display: flex;
-        width: 50%;
+        min-width: 40%;
         justify-content: space-around;
         align-items: center;
         padding: 0;
         margin: 0;
         li {
+            flex-wrap: wrap;
         }
         a {
             color: #aaa;
@@ -40,11 +40,97 @@
         display: none;
     }
 }
+.hero {
+    padding-left: 3rem;
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    &__info {
+        margin: 6rem 0;
+        width: 50%;
+        &-header {
+            display: flex;
+            background: #000;
+            border-radius: 10px;
+            align-items: center;
+            width: fit-content;
+            padding: 0 1rem;
+            img {
+                height: 100%;
+                margin-right: 0.5rem;
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+        &-main {
+            margin: 2rem 0;
+            display: flex;
+            text-align: left;
+            position: relative;
+            cursor: pointer;
+            div {
+                &:hover {
+                    transform: scale(1.2);
+                }
+                position: absolute;
+                right: 0;
+                top: 0;
+                text-align: left;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #000;
+                border: 2px solid skyblue;
+                img {
+                    width: 30%;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &__image {
+        width: 50%;
+        img {
+            width: 100%;
+        }
+    }
+}
+.stats {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        h2 {
+            font-size: 30px;
+            width: fit-content;
+        }
+        h3 {
+            font-size: 20px;
+            width: fit-content;
+        }
+        .line {
+        }
+    }
+}
 @media screen and (max-width: 850px) {
     .header {
-        text-align: left;
         &__nav {
             display: none;
+            &-mobile {
+                padding: 0;
+                margin: 0;
+            }
         }
         &__mobile {
             display: flex;
@@ -55,9 +141,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #aaa;
+                background-color: #aaaaaa;
                 left: 0;
                 top: 0;
+                z-index: 1;
+                text-align: center;
                 li {
                     padding: 2rem;
                 }
@@ -67,5 +155,49 @@
                 transform: scale(1.1);
             }
         }
+    }
+    .hero {
+        flex-direction: column;
+        margin: 0 auto;
+        &__info {
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        &__image {
+            margin: 0 auto;
+            margin-top: 4rem;
+            width: 100%;
+        }
+    }
+    .stats {
+        flex-direction: column;
+        .stats__row {
+            flex-direction: column;
+            h2 {
+                font-size: 40px;
+                margin-bottom: 0;
+            }
+            h3 {
+                font-size: 30px;
+                margin-bottom: 2rem;
+            }
+        }
+        span {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 30px;
+        line-height: 50px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h3 {
+        font-size: 20px;
     }
 }
