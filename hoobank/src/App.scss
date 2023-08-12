@@ -1,0 +1,71 @@
+.App {
+    margin: 0 auto;
+    max-width: 1080px;
+}
+.header {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    text-align: center;
+    &__logo {
+        height: 50%;
+        z-index: 2;
+        img {
+            padding: 1rem;
+            width: 50%;
+            cursor: pointer;
+            z-index: 3;
+        }
+    }
+    &__nav {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        li {
+        }
+        a {
+            color: #aaa;
+            padding: 1rem;
+        }
+        a:hover {
+            color: #fff;
+        }
+    }
+    &__mobile {
+        display: none;
+    }
+}
+@media screen and (max-width: 850px) {
+    .header {
+        text-align: left;
+        &__nav {
+            display: none;
+        }
+        &__mobile {
+            display: flex;
+            &-menu {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #aaa;
+                left: 0;
+                top: 0;
+                li {
+                    padding: 2rem;
+                }
+            }
+            &-icon {
+                z-index: 2;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
