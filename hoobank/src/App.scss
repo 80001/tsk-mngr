@@ -196,6 +196,32 @@
         }
     }
 }
+.deal {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 2rem;
+    &__info {
+        width: 50%;
+        h2 {
+            font-size: 40px;
+            width: 80%;
+            line-height: normal;
+        }
+        button {
+            margin: 2rem 0;
+        }
+    }
+    &__img {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+}
 @media screen and (max-width: 850px) {
     .button:active {
         transform: scale(1.1);
@@ -302,6 +328,24 @@
                     transform: scale(1.1);
                 }
             }
+        }
+    }
+    .deal {
+        flex-direction: column;
+        margin: 2rem auto;
+        padding: 0;
+        &__info {
+            h2 {
+                width: 100%;
+            }
+        }
+        &__img,
+        &__info {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width: 90%;
         }
     }
 }
